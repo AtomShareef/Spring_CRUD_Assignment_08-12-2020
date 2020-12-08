@@ -1,0 +1,44 @@
+package com.atom.crud.example.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.atom.crud.example.entity.Product;
+import com.atom.crud.example.service.ProductService;
+
+@RestController
+public class ProductController {
+
+	@Autowired
+	private ProductService productService;
+	
+	//post mapping
+	@PostMapping("/add-product")
+	public Product addProduct(@RequestBody Product product) {
+		return productService.saveProduct(product);
+	}
+	
+	@PostMapping("/add-products")
+	public List<Product> addProducts(@RequestBody List<Product> products) {
+		return productService.saveProducts(products);
+	}
+	
+	//get mapping
+	
+	public List<Product> findAllProducts(){
+		return productService.getProducts();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

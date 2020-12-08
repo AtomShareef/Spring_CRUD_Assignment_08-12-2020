@@ -1,0 +1,19 @@
+package com.atom.crud.example.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.atom.crud.example.entity.Product;
+import com.atom.crud.example.service.ProductService;
+
+@RestController
+public class ProductController {
+
+	@Autowired
+	private ProductService productService;
+	
+	public Product addProduct(@RequestBody Product product) {
+		return productService.saveProduct(product);
+	}
+}

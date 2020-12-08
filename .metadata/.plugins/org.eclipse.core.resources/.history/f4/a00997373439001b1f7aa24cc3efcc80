@@ -1,0 +1,5 @@
+package com.atom.crud.example.repository;
+
+public interface ProductRepository {
+
+}
